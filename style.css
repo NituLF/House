@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(5, 93, 5);
+    display: grid;
+    place-items: center;
+}
+
+.house {
+    width: 100%;
+    max-width: 1000px;
+    height: 70rem;
+    background-color: #f1cf11;
+    position: relative;
+    perspective:100rem ;
+}
+
+.main-roof {
+    width: 110%;
+    height: 30rem;
+    background-color: rgb(89, 64, 6);
+    position: absolute;
+    top: -10rem;
+    left: -5%;
+    transform: rotateX(20deg);
+    border-radius: 1rem 1rem .5rem .5rem;
+    box-shadow: 0.5rem 1rem 2rem #222;
+}
+
+.window {
+    width: 12rem;
+    height: 15rem;
+    background-color: rgb(228, 194, 194);
+    border: .4rem solid #333;
+    position: absolute;
+}
+
+.window::after {
+    content: "";
+    width: .4rem;
+    height: 100%;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.window::before {
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background-color: #333;
+    position: absolute;
+    left: 0rem;
+    top: 5rem;
+}
+
+.top-left-window {
+    top: 22rem;
+    left: 10rem;
+    border-radius: 50% 50% 0 0;
+}
+.top-right-window {
+    top: 22rem;
+    right: 10rem;
+    border-radius: 50% 50% 0 0;
+
+}
+.bottom-left-window {
+    bottom: 10rem;
+    left: 10rem;
+}
+.bottom-right-window {
+    bottom: 10rem;
+    right: 10rem;
+}
+
+.room {
+    width: 40rem;
+    height: 80%;
+    background-color: rgb(236, 243, 105);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    perspective: 100rem;
+}
+
+.room-roof {
+    width: 110%;
+    height: 20rem;
+    background-color: rgb(89, 64, 6) ;
+    position: absolute;
+    top: -10rem;
+    left: -5%;
+    border-radius: .5rem .5rem .3rem .3rem ;
+    box-shadow: .2rem .5rem 1.5rem #222;
+    transform: rotateX(30deg);
+}
+
+.name {
+    color: #222;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 58px;
+}
+
+
+.top-window {
+    width: 16rem;
+    height: 17rem;
+    background-color: rgb(112, 22, 22);
+    position: absolute;
+    top: 15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 0 0;
+    border: .5rem solid #555;
+    perspective: 150rem;
+}
+
+.top-window-left {
+    width: 49.5%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 50rem;
+    border: .5rem solid #555;
+    transform-origin: left;
+    transition: transform 1s;
+}
+
+.top-window:hover .top-window-left {
+    transform: rotateY(-50deg);
+}
+
+.top-window-left::before {
+    content: "";
+    width: 100%;
+    height: 0.5rem;
+    background-color: #555;
+    position: absolute;
+    top: 35%;
+    left: 0;
+}
+
+.top-window-right {
+    width: 49.5%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 50rem;
+    border: .5rem solid #555;
+    transform-origin: right;
+    transition: transform 1s;
+}
+
+.top-window:hover .top-window-right {
+    transform: rotateY(50deg);
+}
+
+.top-window-right::before {
+    content: "";
+    width: 100%;
+    height: 0.5rem;
+    background-color: #555;
+    position: absolute;
+    top: 35%;
+    right: 0;
+}
+
+.door-frame {
+    width: 14rem;
+    height: 18rem;
+    background-color: #444;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0.6rem solid #222;
+    border-bottom: none;
+    perspective: 100rem;
+}
+
+.door {
+    width: 100%;
+    height: 100%;
+    background-color: #f1cf11;
+    transform-origin: right;
+    transition: transform 1s .5s;
+    border: 1px solid rgb(113, 77, 9);
+}
+
+.btn {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 46px;
+    background-color: #f1cf11;
+    color: #594006;
+    border: none;
+    cursor: pointer;
+}
+
+.door.change {
+    transform: rotateY(30deg);
+}
+
+.door-handle {
+    width: 3rem;
+    height: .7rem;
+    background-color: rgb(108, 78, 78);
+    position: absolute;
+    top: 45%;
+    left: 1rem;
+    border-radius: 100% 0.5rem 0.5rem 100%;
+    transform-origin: left;
+    transition: transform .5s;
+}
+
+.door.change .door-handle {
+    transform: rotateZ(20deg);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .house {
+        width: 100%;
+        max-width: 620px;
+    }
+
+    .room {
+        width: 100%;
+        max-width: 40%;
+    }
+
+    .name {
+        font-size: 32px;
+        padding-top: 10px;
+    }
+
+    .door-frame {
+        width: 100%;
+        max-width: 20%;
+    }
+
+    .top-window {
+        width: 100%;
+        max-width: 60%;
+    }
+   
+     .window {
+        width: 100%;
+        max-width: 18%;
+        margin: 0 -60px;
+     }
+}
+
+@media (max-width: 540px) {
+    .window {
+        display: none;
+    }
+    .room {
+        width: 100%;
+        max-width: 60%;
+    
+    }
+
+    .name {
+        font-size: 32px;
+    }
+
+    .btn {
+        font-size: 24px;
+        margin: 30px 0 0 8px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .door-handle {
+        max-width: 20%;
+    }
+}
